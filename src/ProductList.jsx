@@ -258,6 +258,16 @@ const handlePlantsClick = (e) => {
     e.preventDefault();
     setShowCart(false);
   };
+
+  const plantAdded = (plant) => {
+    const existingItem = cart.find(item => item.name === plant.name);
+    if (existingItem){
+        return true;
+    }else {
+        return false;
+    }
+
+  }
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -290,7 +300,7 @@ const handlePlantsClick = (e) => {
                                 <div className='product-title'>{plant.name}</div>
                                 <div className='product-description'>{plant.description}</div>
                                 <div className='product-cost'>{plant.cost}</div>
-                                <button className='product-button' onClick={() => handleAddToCart(plant)}>Add to Cart</button>   
+                                <button className='product-button' disabled={plantAdded(plant)} onClick={() => handleAddToCart(plant)}>{plantAdded(plant) ? "Added to Cart" : "Add to Cart" }</button>   
                             </div>
                         ))}
                     </div>
