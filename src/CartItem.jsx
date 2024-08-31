@@ -12,8 +12,10 @@ const CartItem = ({ onContinueShopping }) => {
     let totalAmount = 0;
     console.log(cart);
     cart.forEach((item) => {
+        console.log(item);
         totalAmount += item.cost * item.quantity;
     });
+    
     return totalAmount;
   };
 
@@ -22,7 +24,7 @@ const CartItem = ({ onContinueShopping }) => {
   }
 
   const handleContinueShopping = (e) => {
-   onContinueShopping();
+   onContinueShopping(e);
   };
 
 

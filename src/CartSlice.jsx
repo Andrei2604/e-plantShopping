@@ -12,7 +12,8 @@ export const CartSlice = createSlice({
         if (existingItem){
             existingItem.quantity++;
         } else {
-            state.items.push({name, image, cost, quantity: 1});
+            const costInt = parseInt(cost.substring(1));
+            state.items.push({name, image, cost:costInt, quantity: 1});
         }
     },
     removeItem: (state, action) => {
