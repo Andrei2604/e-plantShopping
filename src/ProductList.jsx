@@ -237,6 +237,7 @@ function ProductList() {
    }
    const handleAddToCart = (product) => {
     dispatch(addItem(product));
+    console.log(product);
     setAddedToCart((prevState) => ({
         ...prevState,
         [product.name]: true,
